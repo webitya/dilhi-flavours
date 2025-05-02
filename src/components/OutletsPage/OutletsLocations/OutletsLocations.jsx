@@ -12,7 +12,7 @@ const outlets = [
     address: "Ground Floor, Bhajnath Sundari Bhawan, Katatoli, Ranchi – 834001",
     phone: "+91 9942889933",
     hours: "11:00 AM - 10:00 PM",
-    image:"/logo.jpg",
+    image:"/img1.jpg",
     mapUrl: "https://maps.google.com/?q=Katatoli,Ranchi",
   },
   {
@@ -22,7 +22,7 @@ const outlets = [
     address: "Shop No. 1, Ground Floor, Deorani Complex, Circular Road, Lalpur, Ranchi – 834001",
     phone: "+91 9905555938",
     hours: "11:00 AM - 10:00 PM",
-    image: "/logo.jpg",
+    image: "/img1.jpg",
     mapUrl: "https://maps.google.com/?q=Circular Road,Lalpur,Ranchi",
   },
   {
@@ -32,7 +32,7 @@ const outlets = [
     address: "Shop No. 1, Ground Floor, Maa Parwati Complex, East Jail Road, Lalpur, Ranchi – 834001",
     phone: "+91 9942889933",
     hours: "11:00 AM - 10:00 PM",
-    image: "/logo.jpg",
+    image: "/img1.jpg",
     mapUrl: "https://maps.google.com/?q=East Jail Road,Lalpur,Ranchi",
   },
 ]
