@@ -42,7 +42,7 @@ const HomePageAbout = () => {
               src="/logo.jpg"
               alt="Dilhi Flavours Restaurant"
               fill
-              className="object-cover"
+              className="object-contain"
             />
           </motion.div>
 
