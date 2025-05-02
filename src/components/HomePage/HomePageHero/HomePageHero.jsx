@@ -24,7 +24,7 @@ const HomePageHero = () => {
           <h1 className="text-3xl sm:text-4xl md:text-6xl font-extrabold leading-tight tracking-wide mb-4 text-balance">
             THE{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-red-500 to-orange-500 animate-pulse">
-              DELHI FLAVOURS
+              DILHI FLAVOURS
             </span>
           </h1>
           <h2 className="text-xl sm:text-2xl md:text-3xl font-semibold mb-4 text-rose-600">
