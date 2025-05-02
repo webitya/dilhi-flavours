@@ -16,11 +16,11 @@ const HomePage = () => {
       <main className="flex-grow">
         <HomePageHero />
         <HomePageAbout />
-        <HomePageSpecials />
-        <HomePageMenu />
+        {/* <HomePageSpecials /> */}
+        {/* <HomePageMenu /> */}
         <HomePageGallery />
-        <HomePageTestimonials />
-        <HomePageChefs />
+        {/* <HomePageTestimonials /> */}
+        {/* <HomePageChefs /> */}
         <HomePageOutlets />
         <HomePageCTA />
       </main>

@@ -1,75 +1,68 @@
 "use client"
-
-import { motion } from "framer-motion"
-import { Phone, Email, WhatsApp } from "@mui/icons-material"
+import { motion } from "framer-motion";
+import { Phone, Email, WhatsApp } from "@mui/icons-material";
 
 const HomePageCTA = () => {
   return (
-    <section className="py-16 md:py-24 bg-white">
+    <section
+      className="relative py-24 bg-[url('/images/food-bg.jpg')] bg-cover bg-center text-white"
+      style={{ backgroundBlendMode: "overlay", backgroundColor: "rgba(0,0,0,0.5)" }}
+    >
       <div className="container mx-auto px-4">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="bg-gradient-to-r from-primary to-primary/80 rounded-2xl p-8 md:p-12 text-white relative overflow-hidden"
+          className="max-w-6xl mx-auto text-center"
         >
-          {/* Decorative circles */}
-          <div className="absolute top-0 right-0 w-40 h-40 rounded-full bg-white/10 -translate-y-1/2 translate-x-1/2"></div>
-          <div className="absolute bottom-0 left-0 w-60 h-60 rounded-full bg-white/10 translate-y-1/2 -translate-x-1/2"></div>
+          <h2 className="text-4xl md:text-5xl font-extrabold leading-tight mb-6">
+            ❤️ Fall in Love with the Flavours of Delhi
+          </h2>
+          <p className="text-xl md:text-2xl text-white/90 max-w-2xl mx-auto mb-10">
+            Experience rich spices, sizzling aromas, and authentic dishes—now in Ranchi.
+            Book your table today or reach out for catering.
+          </p>
 
-          <div className="relative z-10 md:flex items-center justify-between">
-            <div className="md:w-7/12 mb-8 md:mb-0">
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">Ready to Experience the Taste of Delhi?</h2>
-              <p className="text-white/90 text-lg mb-8 max-w-xl">
-                Visit one of our outlets in Ranchi or contact us to make a reservation. We're excited to serve you the
-                authentic flavors of Delhi!
-              </p>
-
-              <div className="space-y-4">
-                <div className="flex items-center">
-                  <Phone className="mr-3" />
-                  <span>+91 9942889933</span>
-                </div>
-                <div className="flex items-center">
-                  <Email className="mr-3" />
-                  <span>thedilhiflavours@gmail.com</span>
-                </div>
-                <div className="flex items-center">
-                  <Phone className="mr-3" />
-                  <span>+91 9905555938</span>
-                </div>
-              </div>
+          <div className="flex flex-col md:flex-row justify-center items-center gap-6 mb-10">
+            <div className="flex items-center text-white/90">
+              <Phone className="mr-2" />
+              <span>+91 9942889933</span>
             </div>
-
-            <div className="md:w-4/12">
-              <a
-                href="https://wa.me/919942889933"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-secondary text-gray-900 font-bold py-4 px-8 rounded-lg inline-flex items-center hover:bg-secondary/90 transition-colors"
-              >
-                <WhatsApp className="mr-2" />
-                WhatsApp Us
-              </a>
-
-              <p className="mt-4 text-white/80">
-                Or visit our website:{" "}
-                <a
-                  href="http://www.dilliflavours.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="underline hover:text-white"
-                >
-                  www.dilliflavours.com
-                </a>
-              </p>
+            <div className="flex items-center text-white/90">
+              <Phone className="mr-2" />
+              <span>+91 9905555938</span>
             </div>
+            <div className="flex items-center text-white/90">
+              <Email className="mr-2" />
+              <span>thedilhiflavours@gmail.com</span>
+            </div>
+          </div>
+
+          <div className="flex flex-col md:flex-row justify-center items-center gap-4">
+            <a
+              href="https://wa.me/919942889933"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-[#ffe066] text-[#2d3142] font-semibold py-4 px-8 rounded-full inline-flex items-center hover:bg-[#ffcc00] transition-all"
+            >
+              <WhatsApp className="mr-2" />
+              Chat on WhatsApp
+            </a>
+
+            <a
+              href="http://www.dilhiflavours.in"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline text-white/80 hover:text-white"
+            >
+              Visit www.dilliflavours.com →
+            </a>
           </div>
         </motion.div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default HomePageCTA
+export default HomePageCTA;

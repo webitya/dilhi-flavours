@@ -1,32 +1,68 @@
 "use client"
 
 import { motion } from "framer-motion"
+import { Restaurant, LocalDining, EmojiFoodBeverage } from "@mui/icons-material"
 
-const AboutHero = () => {
+const features = [
+  {
+    icon: <Restaurant fontSize="large" className="text-red-500" />,
+    title: "Rooted in Delhi",
+    desc: "We bring you the authentic street-style taste and rich food heritage straight from the heart of Delhi.",
+  },
+  {
+    icon: <LocalDining fontSize="large" className="text-yellow-500" />,
+    title: "Flavours that Speak",
+    desc: "Every dish is a tribute to the bold spices, vibrant colors, and unforgettable aromas of North India.",
+  },
+  {
+    icon: <EmojiFoodBeverage fontSize="large" className="text-green-600" />,
+    title: "More than a Meal",
+    desc: "It's a nostalgic experience—of home, festivals, and that one special dish you can’t forget.",
+  },
+]
+
+const AboutUsSection = () => {
   return (
-    <section className="relative h-[60vh] bg-about-pattern bg-cover bg-center flex items-center">
-      <div className="absolute inset-0 bg-black/50"></div>
-      <div className="container mx-auto px-4 relative z-10 text-center">
-        <motion.h1
+    <section className="py-20 px-4 bg-gradient-to-br from-orange-50 to-yellow-100">
+      <div className="max-w-6xl mx-auto text-center">
+        <motion.h2
           initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="text-4xl md:text-6xl font-bold mb-4 text-white"
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="text-4xl md:text-5xl font-bold text-orange-800 mb-6"
         >
-          About Us
-        </motion.h1>
+          Welcome to Dilhi Flavours 🍴
+        </motion.h2>
         <motion.p
           initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-          className="text-xl text-gray-200 max-w-3xl mx-auto"
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          viewport={{ once: true }}
+          className="text-lg text-gray-700 max-w-2xl mx-auto mb-12"
         >
-          Discover the story behind Dilhi Flavours and our passion for authentic Delhi cuisine
+          From the lanes of Chandni Chowk to your plate, we deliver the taste of Delhi in every bite. Our chefs recreate classic recipes using fresh local ingredients and timeless techniques. It’s more than food—it’s a feeling.
         </motion.p>
+
+        <div className="grid md:grid-cols-3 gap-8">
+          {features.map((feature, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: index * 0.2 }}
+              viewport={{ once: true }}
+              className="bg-white rounded-2xl shadow-lg p-6 text-left hover:shadow-2xl transition-shadow"
+            >
+              <div className="mb-4">{feature.icon}</div>
+              <h3 className="text-xl font-semibold text-orange-700 mb-2">{feature.title}</h3>
+              <p className="text-gray-600">{feature.desc}</p>
+            </motion.div>
+          ))}
+        </div>
       </div>
-      <div className="absolute bottom-0 left-0 w-full h-16 bg-gradient-to-t from-white to-transparent"></div>
     </section>
   )
 }
 
-export default AboutHero
+export default AboutUsSection

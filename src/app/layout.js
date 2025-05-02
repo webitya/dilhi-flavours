@@ -6,47 +6,47 @@ import InstagramIcon from "@mui/icons-material/Instagram";
 import NavbarEl from "@/components/Shared/Navbar";
 import FooterEl from "@/components/Shared/Footer";
 
-
 export const metadata = {
-  title: "Zuprides – Affordable Car & Bike Rentals in India",
+  title: "Dilhi Flavours – Capital Of Taste",
   description:
-    "Zuprides offers reliable, budget-friendly car and bike rentals across India. Book online for hassle-free travel experiences with doorstep delivery, flexible pricing, and 24/7 support.",
+    "Dilhi Flavours is a premier restaurant in Ranchi offering authentic North Indian cuisine, Chinese delights, and fast food in a cozy dining experience. Visit us for great food and warm hospitality.",
   keywords: [
-    "Zuprides",
-    "car rental India",
-    "bike rental",
-    "self-drive car",
-    "scooty rental",
-    "affordable rentals",
-    "Ranchi car hire",
-    "India bike booking",
-    "travel services India",
+    "Dilhi Flavours",
+    "Ranchi restaurant",
+    "North Indian food",
+    "best food in Ranchi",
+    "Chinese cuisine Ranchi",
+    "family restaurant",
+    "Dilhi Flavours menu",
+    "top restaurants Ranchi",
+    "dine-in Ranchi",
+    "Ranchi food delivery",
   ],
-  authors: [{ name: "Zuprides India", url: "https://zuprides.in" }],
+  authors: [{ name: "Dilhi Flavours", url: "https://dilhiflavours.in" }],
   openGraph: {
-    title: "Zuprides – Affordable Car & Bike Rentals",
+    title: "Dilhi Flavours – Authentic North Indian Restaurant in Ranchi",
     description:
-      "Rent cars and bikes at the best prices across India with Zuprides. Safe, reliable, and convenient options for local and outstation travel.",
-    url: "https://zuprides.in",
-    siteName: "Zuprides",
+      "Enjoy delicious North Indian, Chinese, and street food at Dilhi Flavours. Perfect for family dinners, takeout, and food lovers in Ranchi.",
+    url: "https://dilhiflavours.in",
+    siteName: "Dilhi Flavours",
     images: [
       {
-        url: "/r15.jpg", // 🔁 Replace with your actual image URL
+        url: "/logo.jpg", // Ensure this image exists in /public
         width: 1200,
         height: 630,
-        alt: "Zuprides Car & Bike Rentals",
+        alt: "Dilhi Flavours Restaurant in Ranchi",
       },
     ],
     locale: "en_IN",
-    type: "website",
+    type: "website", // ✅ Fixed: "restaurant" → "website"
   },
   twitter: {
     card: "summary_large_image",
-    site: "@zuprides", // 🔁 Replace if your brand has a Twitter/X handle
-    title: "Zuprides – Rent Cars & Bikes Easily",
+    site: "@dilhiflavours", // Replace with actual handle if available
+    title: "Dilhi Flavours – Discover Rich Flavours in Every Bite",
     description:
-      "Book your ride with Zuprides for safe and affordable transportation across India. Instant booking and 24/7 support.",
-    images: ["/r15.jpg"], // 🔁 Replace with your actual image URL
+      "Savor the best of North Indian and Chinese cuisine in Ranchi at Dilhi Flavours. Dine-in, takeaway, or order online.",
+    images: ["/logo.jpg"],
   },
 };
 
@@ -54,9 +54,9 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>
-         <NavbarEl/>
+        <NavbarEl />
         {children}
-         <FooterEl/>
+        <FooterEl />
         {/* Floating Action Buttons */}
         <div className="fixed bottom-4 right-4 flex flex-col items-end gap-2 z-50">
           <a

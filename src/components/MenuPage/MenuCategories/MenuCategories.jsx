@@ -2,7 +2,6 @@
 
 import { useState } from "react"
 import { motion } from "framer-motion"
-import Image from "next/image"
 
 
 const categories = [
@@ -13,199 +12,52 @@ const categories = [
   { id: "beverages", name: "Beverages" },
 ]
 
+
+
 const menuItems = {
   starters: [
-    {
-      name: "Paneer Tikka",
-      price: "₹249",
-      description: "Marinated cottage cheese grilled to perfection",
-      isVeg: true,
-      image: "/placeholder.svg?height=100&width=100",
-    },
-    {
-      name: "Dahi Bhalla",
-      price: "₹149",
-      description: "Soft lentil dumplings topped with yogurt and chutneys",
-      isVeg: true,
-      image: "/placeholder.svg?height=100&width=100",
-    },
-    {
-      name: "Aloo Tikki Chaat",
-      price: "₹129",
-      description: "Crispy potato patties topped with yogurt and chutneys",
-      isVeg: true,
-      image: "/placeholder.svg?height=100&width=100",
-    },
-    {
-      name: "Gol Gappe (6 Pcs)",
-      price: "₹99",
-      description: "Crispy hollow puris filled with spicy tangy water",
-      isVeg: true,
-      image: "/placeholder.svg?height=100&width=100",
-    },
-    {
-      name: "Chicken Tikka",
-      price: "₹299",
-      description: "Tender chicken pieces marinated and grilled in tandoor",
-      isVeg: false,
-      image: "/placeholder.svg?height=100&width=100",
-    },
-    {
-      name: "Papdi Chaat",
-      price: "₹129",
-      description: "Crispy wafers topped with potatoes, yogurt and chutneys",
-      isVeg: true,
-      image: "/placeholder.svg?height=100&width=100",
-    },
+    { name: "Paneer Tikka", price: "₹249", description: "Marinated cottage cheese grilled to perfection", isVeg: true, image: "/logo.jpg" },
+    { name: "Dahi Bhalla", price: "₹149", description: "Lentil dumplings topped with yogurt and chutneys", isVeg: true, image: "/logo.jpg" },
+    { name: "Aloo Tikki Chaat", price: "₹129", description: "Crispy potato patties with chutneys", isVeg: true, image: "/logo.jpg" },
+    { name: "Gol Gappe", price: "₹99", description: "Puris filled with spicy water", isVeg: true, image: "/logo.jpg" },
+    { name: "Chicken Tikka", price: "₹299", description: "Marinated chicken grilled in tandoor", isVeg: false, image: "/logo.jpg" },
+    { name: "Papdi Chaat", price: "₹129", description: "Crispy wafers topped with yogurt and chutneys", isVeg: true, image: "/logo.jpg" },
   ],
   "main-course": [
-    {
-      name: "Dal Makhani",
-      price: "₹249",
-      description: "Black lentils cooked overnight with butter and cream",
-      isVeg: true,
-      image: "/placeholder.svg?height=100&width=100",
-    },
-    {
-      name: "Shahi Paneer",
-      price: "₹279",
-      description: "Cottage cheese in a rich, creamy tomato gravy",
-      isVeg: true,
-      image: "/placeholder.svg?height=100&width=100",
-    },
-    {
-      name: "Butter Chicken",
-      price: "₹349",
-      description: "Tender chicken pieces in a rich tomato and butter gravy",
-      isVeg: false,
-      image: "/placeholder.svg?height=100&width=100",
-    },
-    {
-      name: "Kadhai Paneer",
-      price: "₹269",
-      description: "Cottage cheese cooked with bell peppers in a spicy gravy",
-      isVeg: true,
-      image: "/placeholder.svg?height=100&width=100",
-    },
-    {
-      name: "Chole Bhature",
-      price: "₹199",
-      description: "Spicy chickpea curry served with fried bread",
-      isVeg: true,
-      image: "/placeholder.svg?height=100&width=100",
-    },
-    {
-      name: "Chicken Curry",
-      price: "₹299",
-      description: "Tender chicken pieces in a flavorful curry",
-      isVeg: false,
-      image: "/placeholder.svg?height=100&width=100",
-    },
+    { name: "Dal Makhani", price: "₹249", description: "Slow-cooked black lentils in butter and cream", isVeg: true, image: "/logo.jpg" },
+    { name: "Shahi Paneer", price: "₹279", description: "Cottage cheese in creamy tomato gravy", isVeg: true, image: "/logo.jpg" },
+    { name: "Butter Chicken", price: "₹349", description: "Creamy tomato gravy with grilled chicken", isVeg: false, image: "/logo.jpg" },
+    { name: "Kadhai Paneer", price: "₹269", description: "Paneer cooked with peppers and spices", isVeg: true, image: "/logo.jpg" },
+    { name: "Chole Bhature", price: "₹199", description: "Spicy chickpeas with deep-fried bread", isVeg: true, image: "/logo.jpg" },
+    { name: "Chicken Curry", price: "₹299", description: "Juicy chicken in flavorful curry", isVeg: false, image: "/logo.jpg" },
   ],
   breads: [
-    {
-      name: "Butter Naan",
-      price: "₹49",
-      description: "Soft leavened bread brushed with butter",
-      isVeg: true,
-      image: "/placeholder.svg?height=100&width=100",
-    },
-    {
-      name: "Garlic Roti",
-      price: "₹39",
-      description: "Whole wheat bread with garlic flavor",
-      isVeg: true,
-      image: "/placeholder.svg?height=100&width=100",
-    },
-    {
-      name: "Laccha Paratha",
-      price: "₹59",
-      description: "Layered whole wheat bread",
-      isVeg: true,
-      image: "/placeholder.svg?height=100&width=100",
-    },
-    {
-      name: "Jeera Rice",
-      price: "₹149",
-      description: "Basmati rice cooked with cumin seeds",
-      isVeg: true,
-      image: "/placeholder.svg?height=100&width=100",
-    },
-    {
-      name: "Veg Pulao",
-      price: "₹179",
-      description: "Basmati rice cooked with vegetables and spices",
-      isVeg: true,
-      image: "/placeholder.svg?height=100&width=100",
-    },
+    { name: "Butter Naan", price: "₹49", description: "Soft naan brushed with butter", isVeg: true, image: "/logo.jpg" },
+    { name: "Garlic Roti", price: "₹39", description: "Wheat bread with garlic", isVeg: true, image: "/logo.jpg" },
+    { name: "Laccha Paratha", price: "₹59", description: "Layered Indian bread", isVeg: true, image: "/logo.jpg" },
+    { name: "Jeera Rice", price: "₹149", description: "Basmati rice with cumin", isVeg: true, image: "/logo.jpg" },
+    { name: "Veg Pulao", price: "₹179", description: "Rice with veggies and spices", isVeg: true, image: "/logo.jpg" },
   ],
   desserts: [
-    {
-      name: "Gulab Jamun",
-      price: "₹99",
-      description: "Deep-fried milk solids soaked in sugar syrup",
-      isVeg: true,
-      image: "/placeholder.svg?height=100&width=100",
-    },
-    {
-      name: "Rasmalai",
-      price: "₹129",
-      description: "Soft cottage cheese dumplings in sweetened milk",
-      isVeg: true,
-      image: "/placeholder.svg?height=100&width=100",
-    },
-    {
-      name: "Kulfi",
-      price: "₹89",
-      description: "Traditional Indian ice cream",
-      isVeg: true,
-      image: "/placeholder.svg?height=100&width=100",
-    },
-    {
-      name: "Jalebi",
-      price: "₹79",
-      description: "Crispy, syrupy sweet pretzel-shaped dessert",
-      isVeg: true,
-      image: "/placeholder.svg?height=100&width=100",
-    },
+    { name: "Gulab Jamun", price: "₹99", description: "Deep-fried dumplings in sugar syrup", isVeg: true, image: "/logo.jpg" },
+    { name: "Rasmalai", price: "₹129", description: "Soft paneer balls in milk", isVeg: true, image: "/logo.jpg" },
+    { name: "Kulfi", price: "₹89", description: "Traditional Indian ice cream", isVeg: true, image: "/logo.jpg" },
+    { name: "Jalebi", price: "₹79", description: "Syrupy spiral dessert", isVeg: true, image: "/logo.jpg" },
   ],
   beverages: [
-    {
-      name: "Masala Chai",
-      price: "₹49",
-      description: "Spiced Indian tea with milk",
-      isVeg: true,
-      image: "/placeholder.svg?height=100&width=100",
-    },
-    {
-      name: "Lassi",
-      price: "₹79",
-      description: "Sweet or salted yogurt-based drink",
-      isVeg: true,
-      image: "/placeholder.svg?height=100&width=100",
-    },
-    {
-      name: "Fresh Lime Soda",
-      price: "₹69",
-      description: "Refreshing lime-based drink with soda",
-      isVeg: true,
-      image: "/placeholder.svg?height=100&width=100",
-    },
-    {
-      name: "Cold Coffee",
-      price: "₹99",
-      description: "Chilled coffee blended with ice cream",
-      isVeg: true,
-      image: "/placeholder.svg?height=100&width=100",
-    },
+    { name: "Masala Chai", price: "₹49", description: "Indian tea with spices", isVeg: true, image: "/logo.jpg" },
+    { name: "Lassi", price: "₹79", description: "Yogurt-based sweet or salted drink", isVeg: true, image: "/logo.jpg" },
+    { name: "Fresh Lime Soda", price: "₹69", description: "Refreshing lime drink", isVeg: true, image: "/logo.jpg" },
+    { name: "Cold Coffee", price: "₹99", description: "Blended chilled coffee", isVeg: true, image: "/logo.jpg" },
   ],
 }
+
 
 const MenuCategories = () => {
   const [activeCategory, setActiveCategory] = useState("starters")
 
   return (
-    <section className="py-16 bg-white">
+    <section className="py-16 bg-gradient-to-br from-yellow-50 via-orange-50 to-pink-50">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <motion.h2
@@ -213,31 +65,30 @@ const MenuCategories = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
             viewport={{ once: true }}
-            className="section-title"
+            className="text-4xl font-extrabold text-red-600"
           >
             Our Menu
           </motion.h2>
-
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
             viewport={{ once: true }}
-            className="section-subtitle"
+            className="text-lg text-gray-600 mt-2"
           >
-            Explore our wide range of authentic Delhi cuisine
+            Explore our authentic Delhi flavors
           </motion.p>
         </div>
 
-        <div className="flex flex-wrap justify-center gap-4 mb-12">
+        <div className="flex flex-wrap justify-center gap-3 mb-10">
           {categories.map((category) => (
             <button
               key={category.id}
               onClick={() => setActiveCategory(category.id)}
-              className={`px-6 py-3 rounded-full transition-all ${
+              className={`px-6 py-2 rounded-full font-medium transition duration-300 ${
                 activeCategory === category.id
-                  ? "bg-primary text-white shadow-md"
-                  : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+                  ? "bg-red-500 text-white shadow-md"
+                  : "bg-white border border-red-300 text-red-600 hover:bg-red-100"
               }`}
             >
               {category.name}
@@ -252,25 +103,23 @@ const MenuCategories = () => {
           transition={{ duration: 0.5 }}
           className="grid md:grid-cols-2 gap-6"
         >
-          {menuItems[activeCategory].map((item, index) => (
+          {menuItems[activeCategory].map((item, idx) => (
             <div
-              key={index}
-              className="flex gap-4 p-4 border border-gray-100 rounded-lg hover:shadow-md transition-shadow"
+              key={idx}
+              className="flex gap-4 p-4 rounded-xl border border-red-100 bg-white shadow hover:shadow-lg transition-shadow duration-300"
             >
-              <div className="relative w-20 h-20 rounded-md overflow-hidden flex-shrink-0">
-                <Image src={item.image || "/placeholder.svg"} alt={item.name} fill className="object-cover" />
+              <div className="relative w-24 h-24 rounded-lg overflow-hidden">
+                <img src={item.image} alt={item.name} fill className="object-cover" />
               </div>
-              <div className="flex-grow">
+              <div className="flex flex-col justify-between">
                 <div className="flex justify-between items-start">
                   <div className="flex items-center gap-2">
-                    <h3 className="text-lg font-bold text-gray-800">{item.name}</h3>
+                    <h3 className="text-lg font-semibold text-gray-800">{item.name}</h3>
                     {item.isVeg && (
-                      <span className="text-green-600">
-                        {/* <Vegetarian fontSize="small" /> */}
-                      </span>
+                      <span className="w-3 h-3 bg-green-600 rounded-full" title="Vegetarian" />
                     )}
                   </div>
-                  <span className="font-bold text-primary">{item.price}</span>
+                  <span className="text-red-500 font-semibold">{item.price}</span>
                 </div>
                 <p className="text-gray-600 text-sm mt-1">{item.description}</p>
               </div>

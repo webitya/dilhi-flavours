@@ -1,10 +1,10 @@
-"use client"
+"use client";
 
-import { useState, useEffect } from "react"
-import Link from "next/link"
-import Image from "next/image"
-import { motion } from "framer-motion"
-import { Menu, Close } from "@mui/icons-material"
+import { useState, useEffect } from "react";
+import Link from "next/link";
+import Image from "next/image";
+import { motion, AnimatePresence } from "framer-motion";
+import { Menu, Close } from "@mui/icons-material";
 
 const navLinks = [
   { name: "Home", path: "/" },
@@ -13,42 +13,44 @@ const navLinks = [
   { name: "Menus", path: "/menu" },
   { name: "Gallery", path: "/gallery" },
   { name: "Contact", path: "/contact" },
-]
+];
 
 const NavbarEl = () => {
-  const [isOpen, setIsOpen] = useState(false)
-  const [scrolled, setScrolled] = useState(false)
+  const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 10) {
-        setScrolled(true)
-      } else {
-        setScrolled(false)
-      }
-    }
+      setScrolled(window.scrollY > 10);
+    };
 
-    window.addEventListener("scroll", handleScroll)
-    return () => window.removeEventListener("scroll", handleScroll)
-  }, [])
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? "bg-white shadow-md py-2" : "bg-transparent py-4"
+        scrolled ? "bg-white shadow-lg py-1 text-black" : "bg-white shadow-lg  py-1 text-black"
       }`}
     >
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="relative z-10">
-            <div className="relative w-[180px] h-[60px]">
-              <Image src="/logo.png" alt="Dilhi Flavours Logo" fill className="object-contain" priority />
+          <Link href="/" className="relative z-50">
+            <div className="relative w-[160px] h-[55px]">
+              <Image
+                src="/logo.jpg"
+                alt="Dilhi Flavours Logo"
+                fill
+                className="object-contain"
+                priority
+              />
             </div>
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-1">
+          <nav className="hidden md:flex items-center space-x-2">
             {navLinks.map((link, index) => (
               <motion.div
                 key={link.name}
@@ -58,8 +60,10 @@ const NavbarEl = () => {
               >
                 <Link
                   href={link.path}
-                  className={`px-4 py-2 rounded-md font-medium transition-colors ${
-                    scrolled ? "text-gray-800 hover:text-primary" : "text-white hover:text-secondary"
+                  className={`px-4 py-2 rounded-md font-medium transition-all duration-200 ${
+                    scrolled
+                      ? "text-gray-800 hover:text-[#d0312d]"
+                      : "text-gray-800  hover:text-[#facc15]"
                   }`}
                 >
                   {link.name}
@@ -68,63 +72,67 @@ const NavbarEl = () => {
             ))}
 
             <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
+              initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.3, delay: 0.6 }}
+              transition={{ duration: 0.3, delay: 0.7 }}
             >
               <Link
                 href="/contact"
-                className="ml-2 px-6 py-2 rounded-lg bg-primary text-white font-medium hover:bg-primary/90 transition-colors"
+                className="ml-3 px-6 py-2 rounded-full bg-[#d0312d] text-white font-semibold hover:bg-[#b42422] transition duration-300 shadow"
               >
                 Book a Table
               </Link>
             </motion.div>
           </nav>
 
-          {/* Mobile Menu Button */}
+          {/* Mobile Menu Toggle */}
           <button
-            className="md:hidden text-2xl p-2 focus:outline-none z-10"
+            className="md:hidden text-3xl p-2 z-50 text-white"
             onClick={() => setIsOpen(!isOpen)}
             aria-label="Toggle menu"
           >
             {isOpen ? (
-              <Close className={scrolled ? "text-gray-800" : "text-white"} />
+              <Close className={scrolled ? "text-white" : "text-black"} />
             ) : (
-              <Menu className={scrolled ? "text-gray-800" : "text-white"} />
+              <Menu className={scrolled ? "text-gray-800" : "text-black"} />
             )}
           </button>
 
-          {/* Mobile Navigation */}
-          <div
-            className={`fixed inset-0 bg-black/95 z-40 flex flex-col items-center justify-center transition-transform duration-300 ${
-              isOpen ? "transform-none" : "translate-x-full"
-            }`}
-          >
-            <nav className="flex flex-col items-center space-y-6">
-              {navLinks.map((link, index) => (
+          {/* Mobile Navigation Overlay */}
+          <AnimatePresence>
+            {isOpen && (
+              <motion.div
+                initial={{ x: "100%" }}
+                animate={{ x: 0 }}
+                exit={{ x: "100%" }}
+                transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                className="fixed inset-0 bg-[#111] z-40 flex flex-col items-center justify-center space-y-6"
+              >
+                {navLinks.map((link) => (
+                  <Link
+                    key={link.name}
+                    href={link.path}
+                    className="text-white text-2xl font-medium hover:text-[#facc15] transition"
+                    onClick={() => setIsOpen(false)}
+                  >
+                    {link.name}
+                  </Link>
+                ))}
+
                 <Link
-                  key={link.name}
-                  href={link.path}
-                  className="text-white text-xl font-medium hover:text-secondary transition-colors"
+                  href="/contact"
+                  className="mt-4 px-6 py-3 rounded-full bg-[#d0312d] text-white text-lg font-semibold hover:bg-[#b42422] transition"
                   onClick={() => setIsOpen(false)}
                 >
-                  {link.name}
+                  Book a Table
                 </Link>
-              ))}
-
-              <Link
-                href="/contact"
-                className="mt-4 px-8 py-3 rounded-lg bg-primary text-white font-medium hover:bg-primary/90 transition-colors"
-                onClick={() => setIsOpen(false)}
-              >
-                Book a Table
-              </Link>
-            </nav>
-          </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
         </div>
       </div>
     </header>
-  )
-}
+  );
+};
 
-export default NavbarEl
+export default NavbarEl;

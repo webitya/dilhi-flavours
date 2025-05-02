@@ -39,7 +39,7 @@ const HomePageAbout = () => {
             className="relative h-[400px] rounded-xl overflow-hidden shadow-xl"
           >
             <Image
-              src="/placeholder.svg?height=800&width=600"
+              src="/logo.jpg"
               alt="Dilhi Flavours Restaurant"
               fill
               className="object-cover"

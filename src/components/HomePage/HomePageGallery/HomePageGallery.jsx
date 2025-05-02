@@ -2,17 +2,28 @@
 
 import { useState } from "react"
 import { motion } from "framer-motion"
-import Image from "next/image"
 import Link from "next/link"
 import { ArrowForward, Close } from "@mui/icons-material"
 
 const galleryImages = [
-  { id: 1, src: "/placeholder.svg?height=400&width=600", alt: "Restaurant Interior" },
-  { id: 2, src: "/placeholder.svg?height=400&width=600", alt: "Delicious Food" },
-  { id: 3, src: "/placeholder.svg?height=400&width=600", alt: "Chef Preparing Food" },
-  { id: 4, src: "/placeholder.svg?height=400&width=600", alt: "Special Dish" },
-  { id: 5, src: "/placeholder.svg?height=400&width=600", alt: "Outdoor Seating" },
-  { id: 6, src: "/placeholder.svg?height=400&width=600", alt: "Dessert Platter" },
+
+  {
+    id: 2,
+    src: "https://images.unsplash.com/photo-1600891964599-f61ba0e24092?auto=format&fit=crop&w=800&q=80",
+    alt: "Delicious Food",
+  },
+
+
+  {
+    id: 5,
+    src: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=800&q=80",
+    alt: "Outdoor Seating",
+  },
+  {
+    id: 6,
+    src: "https://images.unsplash.com/photo-1586190848861-99aa4a171e90?auto=format&fit=crop&w=800&q=80",
+    alt: "Dessert Platter",
+  },
 ]
 
 const HomePageGallery = () => {
@@ -27,7 +38,7 @@ const HomePageGallery = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
             viewport={{ once: true }}
-            className="section-title"
+            className="text-3xl md:text-4xl font-bold text-gray-800"
           >
             Our Gallery
           </motion.h2>
@@ -37,7 +48,7 @@ const HomePageGallery = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
             viewport={{ once: true }}
-            className="section-subtitle"
+            className="text-lg text-gray-600 mt-4"
           >
             Take a visual tour of our restaurant and delicious food
           </motion.p>
@@ -54,11 +65,10 @@ const HomePageGallery = () => {
               className="relative h-60 md:h-72 rounded-lg overflow-hidden cursor-pointer group"
               onClick={() => setSelectedImage(image)}
             >
-              <Image
-                src={image.src || "/placeholder.svg"}
+              <img
+                src={image.src}
                 alt={image.alt}
-                fill
-                className="object-cover transition-transform duration-500 group-hover:scale-110"
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
               />
               <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                 <span className="text-white font-medium">View</span>
@@ -84,12 +94,11 @@ const HomePageGallery = () => {
           >
             <Close className="text-3xl" />
           </button>
-          <div className="relative w-full max-w-4xl h-[70vh]">
-            <Image
-              src={selectedImage.src || "/placeholder.svg"}
+          <div className="max-w-4xl w-full max-h-[80vh]">
+            <img
+              src={selectedImage.src}
               alt={selectedImage.alt}
-              fill
-              className="object-contain"
+              className="w-full h-full object-contain"
             />
           </div>
         </div>
