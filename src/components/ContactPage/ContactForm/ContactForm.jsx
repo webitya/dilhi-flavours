@@ -1,8 +1,7 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import { motion } from "framer-motion"
-import { Send } from "@mui/icons-material"
+import { useState } from "react";
+import { Send } from "@mui/icons-material";
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({
@@ -11,64 +10,62 @@ const ContactForm = () => {
     phone: "",
     subject: "",
     message: "",
-  })
+  });
 
   const handleChange = (e) => {
-    const { name, value } = e.target
-    setFormData((prev) => ({ ...prev, [name]: value }))
-  }
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
 
   const handleSubmit = (e) => {
-    e.preventDefault()
-    // Form submission logic would go here
-    console.log(formData)
-    alert("Thank you for your message! We'll get back to you soon.")
+    e.preventDefault();
+    console.log(formData);
+    alert("Thank you for your message! We'll get back to you soon.");
     setFormData({
       name: "",
       email: "",
       phone: "",
       subject: "",
       message: "",
-    })
-  }
+    });
+  };
 
   return (
-    <section className="py-16 bg-white">
-      <div className="container mx-auto px-4">
-        <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-12">
-            <motion.h2
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-              viewport={{ once: true }}
-              className="section-title"
-            >
-              Get in Touch
-            </motion.h2>
-
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              viewport={{ once: true }}
-              className="section-subtitle"
-            >
-              Have a question or want to make a reservation? Send us a message!
-            </motion.p>
+    <section className="py-20 px-4 bg-gradient-to-br from-yellow-50 via-orange-50 to-pink-50">
+      <div className="max-w-5xl mx-auto grid md:grid-cols-3 gap-12">
+        {/* Contact Info Card */}
+        <div className="bg-white shadow-lg rounded-xl p-6 space-y-6 border-t-4 border-orange-400">
+          <h3 className="text-2xl font-bold text-orange-500">Contact Information</h3>
+          <div className="text-gray-700 space-y-4 text-sm">
+            <div>
+              <p className="font-medium text-base">📞 Phone</p>
+              <p>+91 9942889933
+              </p>
+             
+            </div>
+            <div>
+              <p className="font-medium text-base">📧 Email</p>
+              <p>contact@delhiflavour.in</p>
+            </div>
+            <div>
+              <p className="font-medium text-base">📍 Address</p>
+              <p>Delhi Flavours Restaurant,</p>
+              <p>Main Road, Ranchi, Jharkhand 834001</p>
+            </div>
           </div>
+        </div>
 
-          <motion.form
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            viewport={{ once: true }}
-            onSubmit={handleSubmit}
-            className="bg-white rounded-xl shadow-md p-8"
-          >
+        {/* Form */}
+        <div className="md:col-span-2 bg-white rounded-xl shadow-lg p-8">
+          <h2 className="text-3xl font-extrabold text-orange-500 mb-2">Get in Touch</h2>
+          <p className="text-gray-600 mb-8 text-sm">
+            Have a question or want to make a reservation? Send us a message!
+          </p>
+
+          <form onSubmit={handleSubmit} className="space-y-6">
             <div className="grid md:grid-cols-2 gap-6">
               <div>
-                <label htmlFor="name" className="block text-gray-700 font-medium mb-2">
+                <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
                   Your Name
                 </label>
                 <input
@@ -78,13 +75,13 @@ const ContactForm = () => {
                   value={formData.name}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-orange-400 focus:border-orange-400"
                   placeholder="John Doe"
                 />
               </div>
 
               <div>
-                <label htmlFor="email" className="block text-gray-700 font-medium mb-2">
+                <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
                   Email Address
                 </label>
                 <input
@@ -94,13 +91,13 @@ const ContactForm = () => {
                   value={formData.email}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-orange-400 focus:border-orange-400"
                   placeholder="john@example.com"
                 />
               </div>
 
               <div>
-                <label htmlFor="phone" className="block text-gray-700 font-medium mb-2">
+                <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1">
                   Phone Number
                 </label>
                 <input
@@ -109,13 +106,13 @@ const ContactForm = () => {
                   name="phone"
                   value={formData.phone}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-orange-400 focus:border-orange-400"
                   placeholder="+91 98765 43210"
                 />
               </div>
 
               <div>
-                <label htmlFor="subject" className="block text-gray-700 font-medium mb-2">
+                <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-1">
                   Subject
                 </label>
                 <input
@@ -125,42 +122,42 @@ const ContactForm = () => {
                   value={formData.subject}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-orange-400 focus:border-orange-400"
                   placeholder="Reservation Request"
                 />
               </div>
-
-              <div className="md:col-span-2">
-                <label htmlFor="message" className="block text-gray-700 font-medium mb-2">
-                  Your Message
-                </label>
-                <textarea
-                  id="message"
-                  name="message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  required
-                  rows="5"
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
-                  placeholder="Write your message here..."
-                ></textarea>
-              </div>
             </div>
 
-            <div className="mt-8 text-center">
+            <div>
+              <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
+                Your Message
+              </label>
+              <textarea
+                id="message"
+                name="message"
+                value={formData.message}
+                onChange={handleChange}
+                required
+                rows={5}
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-orange-400 focus:border-orange-400"
+                placeholder="Write your message here..."
+              ></textarea>
+            </div>
+
+            <div className="text-center">
               <button
                 type="submit"
-                className="inline-flex items-center gap-2 bg-primary text-white px-8 py-3 rounded-lg hover:bg-primary/90 transition-colors"
+                className="inline-flex items-center gap-2 bg-orange-500 text-white px-8 py-3 rounded-full hover:bg-orange-600 transition-all"
               >
                 <Send />
                 <span>Send Message</span>
               </button>
             </div>
-          </motion.form>
+          </form>
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default ContactForm
+export default ContactForm;
