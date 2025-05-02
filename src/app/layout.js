@@ -24,7 +24,7 @@ export const metadata = {
   ],
   authors: [{ name: "Dilhi Flavours", url: "https://dilhiflavours.in" }],
   openGraph: {
-    title: "Dilhi Flavours – Authentic North Indian Restaurant in Ranchi",
+    title: "Dilhi Flavours – Capital of Taste",
     description:
       "Enjoy delicious North Indian, Chinese, and street food at Dilhi Flavours. Perfect for family dinners, takeout, and food lovers in Ranchi.",
     url: "https://dilhiflavours.in",
